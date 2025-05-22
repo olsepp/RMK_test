@@ -108,24 +108,35 @@ def construct_bus_schedule(csv_writer, logs):
             print(f"🔵 TOOMPARK: {vehicle_id} at {now.time()}")
 
 
+# Define a set to keep track of buses when they reach station
 seen = set()
 
+# Open a CSV file to write data into
 with open("bus_schedule.csv", "w", newline="") as f:
     writer = csv.writer(f)
+    # Write headers for data
     writer.writerow(["timestamp", "vehicle_id", "stop"])
 
+    # Loop to keep the live data checking going
     while True:
+
+        # Get the current hour
         hour = datetime.datetime.now().hour
 
-        if hour >= 19:
+        # Stop the loop at 09:00
+        if hour >= 9:
             print("Stopped logging at 09:00.")
             break
 
-        if hour != 18:
+        # Wait for 08:00 to start collecting data
+        if hour != 8:
             print("Waiting for 08:00...")
             time.sleep(10)
             continue
 
+        # Call function to initialize data collection
         construct_bus_schedule(writer, seen)
+
+        # Wait 5 seconds, same interval after which the live data is updated
         time.sleep(5)
 
