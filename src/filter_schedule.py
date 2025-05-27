@@ -25,6 +25,10 @@ def count_buses():
 
 
 def filter_schedule():
+    """
+    Filters the schedule so that it leaves only buses that were at both stop in timeframe.
+    :return: Dictionary of buses that were at both stop in timeframe. Bus ID, time at ZOO and time at TOOMPARK
+    """
     # Get how many times each bus appears in the dataset
     buses = count_buses()
 
@@ -91,7 +95,7 @@ def write_filtered_file():
     schedule = clean_timestamps()
 
     # Open new CSV file to write into
-    with open("filtered_schedule.csv", "w", newline="\n") as f:
+    with open("filtered_schedule.csv", "w", newline="") as f:
         writer = csv.writer(f)
         # Define headers
         writer.writerow(["Bus ID", "ZOO", "TOOMPARK"])
