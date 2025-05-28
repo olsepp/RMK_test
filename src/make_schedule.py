@@ -124,7 +124,7 @@ with open("bus_schedule.csv", "w", newline="") as f:
         hour = datetime.datetime.now().hour
 
         # Stop the loop at 09:00
-        if hour >= 9:
+        if hour == 9:
             print("Stopped logging at 09:00.")
             break
 
