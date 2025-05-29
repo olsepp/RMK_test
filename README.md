@@ -39,13 +39,15 @@ For every minute between 08:00 and 08:59:
   - Simulated Rita leaving home
   - Checked if there was any bus she could catch and still make it on time
   - Wrote the outcome to a CSV file (probabilities_by_minute.csv), including:
-  - Time she left
-  - Whether she caught a bus
-  - Whether she would be late
+    - Time she left
+    - Whether she caught a bus
+    - Which bus she could take
+    - What time she would arrive at destination
+    - Whether she would be late
 
 5. Visualization
 
-Created a simple graph using matplotlib showing:
+Created a simple chart using matplotlib showing:
   - X-axis: minute after 08:00
   - Y-axis: 0 = on time, 1 = late
   - Exported the graph in JPG format
